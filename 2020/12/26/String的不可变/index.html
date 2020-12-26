@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="String 的不可变 JAVA不可变类(immutable)机制与String的不可变性  不可变类简介  不可变类：所谓的不可变类是指这个类的实例一旦创建完成后，就不能改变其成员变量值。如JDK内部自带的很多不可变类：Interger、Long和String等。    可变类：相对于不可变类，可变类创建实例后可以改变其成员变量值，开发中创建的大部分类都属于可变类。  不可变类的优点  说完可变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://wushutong.github.io/wushutong/blog/2020/12/26/String%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="String 的不可变 JAVA不可变类(immutable)机制与String的不可变性  不可变类简介  不可变类：所谓的不可变类是指这个类的实例一旦创建完成后，就不能改变其成员变量值。如JDK内部自带的很多不可变类：Interger、Long和String等。    可变类：相对于不可变类，可变类创建实例后可以改变其成员变量值，开发中创建的大部分类都属于可变类。  不可变类的优点  说完可变">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-26T08:53:03.662Z">
+<meta property="article:modified_time" content="2020-11-24T01:59:45.679Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wushutong.github.io/wushutong/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-String的不可变" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/12/26/String%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98/" class="article-date">
+  <time class="dt-published" datetime="2020-12-26T08:53:03.662Z" itemprop="datePublished">2020-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="String-的不可变"><a href="#String-的不可变" class="headerlink" title="String 的不可变"></a>String 的不可变</h1><ol>
+<li><p>JAVA不可变类(immutable)机制与String的不可变性</p>
+</li>
+<li><p>不可变类简介</p>
+<pre><code> 不可变类：所谓的不可变类是指这个类的实例一旦创建完成后，就不能改变其成员变量值。如JDK内部自带的很多不可变类：Interger、Long和String等。 
+
+ 可变类：相对于不可变类，可变类创建实例后可以改变其成员变量值，开发中创建的大部分类都属于可变类。</code></pre>
+</li>
+<li><p>不可变类的优点</p>
+<pre><code> 说完可变类和不可变类的区别，我们需要进一步了解为什么要有不可变类？这样的特性对JAVA来说带来怎样的好处？
+
+ 线程安全 不可变对象是线程安全的，在线程之间可以相互共享，不需要利用特殊机制来保证同步问题，因为对象的值无法改变。可以降低并发错误的可能性，因为不需要用一些锁机制等保证内存一致性问题也减少了同步开销。
+
+ 易于构造、使用和测试</code></pre>
+</li>
+<li><p>不可变类的设计方法</p>
+<pre><code> 1. 类添加final修饰符，保证类不被继承。 如果类可以被继承会破坏类的不可变性机制，只要继承类覆盖父类的方法并且继承类可以改变成员变量值，那么一旦子类以父类的形式出现时，不能保证当前类是否可变。
+
+ 2. 保证所有成员变量必须私有，并且加上final修饰 通过这种方式保证成员变量不可改变。但只做到这一步还不够，因为如果是对象成员变量有可能再外部改变其值。所以第4点弥补这个不足。
+
+ 3. 不提供改变成员变量的方法，包括setter 避免通过其他接口改变成员变量的值，破坏不可变特性。
+
+ 4.通过构造器初始化所有成员，进行深拷贝(deep copy)
+
+   如果构造器传入的对象直接赋值给成员变量，还是可以通过对传入对象的修改进而导致改变内部变量的值。例如：
+
+           public final class ImmutableDemo &#123;  
+               private final int[] myArray;  
+               public ImmutableDemo(int[] array) &#123;  
+                   this.myArray = array; // wrong  
+               &#125;  
+           &#125;
+
+ 这种方式不能保证不可变性，myArray和array指向同一块内存地址，用户可以在ImmutableDemo之外通过修改array对象的值来改变myArray内部的值。 为了保证内部的值不被修改，可以采用深度copy来创建一个新内存保存传入的值。正确做法：
+
+           public final class MyImmutableDemo &#123;  
+               private final int[] myArray;  
+               public MyImmutableDemo(int[] array) &#123;  
+                   this.myArray = array.clone();   
+               &#125;   
+           &#125;
+
+ 5. 在getter方法中，不要直接返回对象本身，而是克隆对象，并返回对象的拷贝 这种做法也是防止对象外泄，防止通过getter获得内部可变成员对象后对成员变量直接操作，导致成员变量发生改变。</code></pre>
+</li>
+<li><p>String对象的不可变性</p>
+<pre><code> public final class String
+     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence
+ &#123;
+     /** The value is used for character storage. */
+     private final char value[];
+     /** The offset is the first index of the storage that is used. */
+     private final int offset;
+     /** The count is the number of characters in the String. */
+     private final int count;
+     /** Cache the hash code for the string */
+     private int hash; // Default to 0
+     ....
+     public String(char value[]) &#123;
+          this.value = Arrays.copyOf(value, value.length); // deep copy操作
+      &#125;
+     ...
+      public char[] toCharArray() &#123;
+      // Cannot use Arrays.copyOf because of class initialization order issues
+         char result[] = new char[value.length];
+         System.arraycopy(value, 0, result, 0, value.length);
+         return result;
+     &#125;
+     ...
+ &#125;
+
+ 1.String类被final修饰，不可继承
+ 2.string内部所有成员都设置为私有变量
+ 3.不存在value的setter
+ 4.并将value和offset设置为final。
+ 5.当传入可变数组value[]时，进行copy而不是直接将value[]复制给内部变量.
+ 6.获取value时不是直接返回对象引用，而是返回对象的copy.</code></pre>
+</li>
+<li><p>String对象的不可变性的优缺点</p>
+<pre><code> 从上一节分析，String数据不可变类，那设置这样的特性有什么好处呢？我总结为以下几点：
+
+ 1.字符串常量池的需要. 字符串常量池可以将一些字符常量放在常量池中重复使用，避免每次都重新创建相同的对象、节省存储空间。但如果字符串是可变的，此时相同内容的String还指向常量池的同一个内存空间，当某个变量改变了该内存的值时，其他遍历的值也会发生改变。所以不符合常量池设计的初衷。
+
+ 2. 线程安全考虑。 同一个字符串实例可以被多个线程共享。这样便不用因为线程安全问题而使用同步。字符串自己便是线程安全的。
+
+ 3. 类加载器要用到字符串，不可变性提供了安全性，以便正确的类被加载。譬如你想加载java.sql.Connection类，而这个值被改成了myhacked.Connection，那么会对你的数据库造成不可知的破坏。
+
+ 4. 支持hash映射和缓存。 因为字符串是不可变的，所以在它创建的时候hashcode就被缓存了，不需要重新计算。这就使得字符串很适合作为Map中的键，字符串的处理速度要快过其它的键对象。这就是HashMap中的键往往都使用字符串。
+
+ 缺点：
+
+ 如果有对String对象值改变的需求，那么会创建大量的String对象。</code></pre>
+</li>
+<li><p>String对象的是否真的不可变</p>
+<pre><code> 虽然String对象将value设置为final,并且还通过各种机制保证其成员变量不可改变。但是还是可以通过反射机制的手段改变其值。例如：
+
+  //创建字符串&quot;Hello World&quot;， 并赋给引用s
+   String s = &quot;Hello World&quot;; 
+   System.out.println(&quot;s = &quot; + s);    //Hello World
+
+   //获取String类中的value字段
+   Field valueFieldOfString = String.class.getDeclaredField(&quot;value&quot;);
+   //改变value属性的访问权限
+   valueFieldOfString.setAccessible(true);
+
+   //获取s对象上的value属性的值
+   char[] value = (char[]) valueFieldOfString.get(s);
+   //改变value所引用的数组中的第5个字符
+   value[5] = &#39;_&#39;;
+   System.out.println(&quot;s = &quot; + s);  //Hello_World</code></pre>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wushutong.github.io/wushutong/blog/2020/12/26/String%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98/" data-id="ckj5gw1pg0005d0tfafzm6r1j" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/12/26/Swagger/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/12/26/RandomStringUtils/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">December 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E6%88%96%E4%B8%8E%E9%9D%9E/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E6%B1%89%E8%AF%AD%E8%BD%AC%E6%8B%BC%E9%9F%B3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%B1%BB/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

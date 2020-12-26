@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="getter 和 setter Boolean问题JavaBean规范：如果一个属性是boolean值，假设名为property，则其setter方法应该是setProperty，其getter方法应该为isProperty 直接使用注解对is开头的boolean 类型时不能正确获取getter 和 setter 方法的，可以手动修改，或者修改变量名 12345678910111213141516">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://wushutong.github.io/wushutong/blog/2020/12/26/getter%E5%92%8Csetter%E7%9A%84boolean/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="getter 和 setter Boolean问题JavaBean规范：如果一个属性是boolean值，假设名为property，则其setter方法应该是setProperty，其getter方法应该为isProperty 直接使用注解对is开头的boolean 类型时不能正确获取getter 和 setter 方法的，可以手动修改，或者修改变量名 12345678910111213141516">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-26T08:53:03.573Z">
+<meta property="article:modified_time" content="2020-12-25T06:13:23.062Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wushutong.github.io/wushutong/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-getter和setter的boolean" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/12/26/getter%E5%92%8Csetter%E7%9A%84boolean/" class="article-date">
+  <time class="dt-published" datetime="2020-12-26T08:53:03.573Z" itemprop="datePublished">2020-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="getter-和-setter-Boolean问题"><a href="#getter-和-setter-Boolean问题" class="headerlink" title="getter 和 setter Boolean问题"></a>getter 和 setter Boolean问题</h1><p>JavaBean规范：如果一个属性是boolean值，假设名为property，则其setter方法应该是setProperty，其getter方法应该为isProperty</p>
+<p>直接使用注解对<code>is</code>开头的boolean 类型时不能正确获取getter 和 setter 方法的，可以手动修改，或者修改变量名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ndp.fb.rdb.model;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> classGetterSetterTester&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> busy;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isComplete;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> Boolean verify;</span><br><span class="line">    <span class="keyword">private</span> Boolean isFinish;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> JSON.toJSONString(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">staticvoidmain</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        GetterSetterTester t = getterSetter();</span><br><span class="line">        testJson(t);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> GetterSetterTester <span class="title">getterSetter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        GetterSetterTester t = <span class="keyword">new</span> GetterSetterTester();</span><br><span class="line">        <span class="comment">//基本类型：无论带不带is，都是isXxx,setXxx。   sun的标准，需要特殊注意</span></span><br><span class="line">        t.isBusy();</span><br><span class="line">        t.setBusy(<span class="keyword">true</span>);</span><br><span class="line">        t.isComplete();</span><br><span class="line">        t.setComplete(<span class="keyword">true</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="comment">//包装类型:和其他类型一样，getXxx,setXxx;(其他类型的isXxx也是 getIsXxx,setIsXxx,不算特例).</span></span><br><span class="line">        t.getVerify();</span><br><span class="line">        t.setVerify(<span class="keyword">true</span>);</span><br><span class="line">        t.getIsFinish();</span><br><span class="line">        t.setIsFinish(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    privatestaticvoidtestJson(GetterSetterTester t)&#123;</span><br><span class="line">        <span class="comment">//期望的json格式</span></span><br><span class="line">        String json = <span class="string">&quot;&#123;\&quot;busy\&quot;:true,\&quot;isComplete\&quot;:true,\&quot;isFinish\&quot;:true,\&quot;verify\&quot;:true&#125;&quot;</span>;</span><br><span class="line">        GetterSetterTester p = JSON.parseObject(json, GetterSetterTester.class);</span><br><span class="line">        System.out.println(p.isBusy());</span><br><span class="line">        System.out.println(p.isComplete());  <span class="comment">//false</span></span><br><span class="line">        System.out.println(p.getVerify());</span><br><span class="line">        System.out.println(p.getIsFinish());</span><br><span class="line">        <span class="comment">//实际的json格式，可成功反序列化成对象。</span></span><br><span class="line">        <span class="comment">//基本类型变量无论是否有is，json都没有is（与getter一致）。</span></span><br><span class="line">        System.out.println(t.toString());<span class="comment">//&#123;&quot;busy&quot;:true,&quot;complete&quot;:true,&quot;isFinish&quot;:true,&quot;verify&quot;:true&#125;</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment">//空对象时的json，基本类型默认是false，会输出；包装类型默认是null，不输出。</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> GetterSetterTester().toString());<span class="comment">//&#123;&quot;busy&quot;:false,&quot;complete&quot;:false&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo01.qianji.entity;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: wushutong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 2020/10/10 18:39</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BooleanTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> a;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isB;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Boolean c;</span><br><span class="line">    <span class="keyword">private</span> Boolean isD;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(<span class="keyword">boolean</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isB;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setB</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</span><br><span class="line">        isB = b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">getC</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setC</span><span class="params">(Boolean c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.c = c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">getD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setD</span><span class="params">(Boolean d)</span> </span>&#123;</span><br><span class="line">        isD = d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wushutong.github.io/wushutong/blog/2020/12/26/getter%E5%92%8Csetter%E7%9A%84boolean/" data-id="ckj5gw1ph0007d0tfc7or49fx" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/12/26/Jsoup%20java%E8%A7%A3%E6%9E%90html%20xml%20%E7%AD%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/12/26/AtomicBoolean/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">December 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E6%88%96%E4%B8%8E%E9%9D%9E/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E6%B1%89%E8%AF%AD%E8%BD%AC%E6%8B%BC%E9%9F%B3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/26/%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%B1%BB/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

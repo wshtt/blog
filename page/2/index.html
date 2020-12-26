@@ -6,15 +6,11 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="基础知识[toc] 类class1.类与对象用来创建对象 1.class 类 的结构123456789101112131415161718&#x2F;&#x2F; 包名package com.example.controller;&#x2F;&#x2F; 引入的其他类import org.springframework.web.bind.annotation.RequestMapping;import org.springframewo">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://wushutong.github.io/wushutong/blog/2020/12/24/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:url" content="https://wushutong.github.io/wushutong/blog/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基础知识[toc] 类class1.类与对象用来创建对象 1.class 类 的结构123456789101112131415161718&#x2F;&#x2F; 包名package com.example.controller;&#x2F;&#x2F; 引入的其他类import org.springframework.web.bind.annotation.RequestMapping;import org.springframewo">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-24T02:08:41.480Z">
-<meta property="article:modified_time" content="2020-12-25T03:33:44.957Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -73,7 +69,167 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main">
+  
+    <article id="post-lambda" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/12/26/lambda/" class="article-date">
+  <time class="dt-published" datetime="2020-12-26T08:53:03.610Z" itemprop="datePublished">2020-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="lambada-表达式"><a href="#lambada-表达式" class="headerlink" title="lambada 表达式"></a>lambada 表达式</h1><p>lambada 表达式实质上是一个匿名方法，但该方法并非独立执行，而是用于实现由函数式接口定义的唯一抽象方法</p>
+<p>函数式接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">函数式接口是仅含一个抽象方法的接口，但可以指定 Object 定义的任何公有方法。</span><br><span class="line"><span class="meta">@FunctionalInterface</span>   标识函数式接口（可有可无）</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IFunctionMulti</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Number</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">multi</span><span class="params">(List&lt;T&gt; numbers)</span></span>; <span class="comment">// 抽象方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>;  <span class="comment">// Object中的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>lambda表达式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">单独表达式</span><br><span class="line">list.forEach(item -&gt; System.out.println(item));</span><br><span class="line"></span><br><span class="line">包含代码块</span><br><span class="line">list.forEach(item -&gt; &#123;</span><br><span class="line">  <span class="keyword">int</span> numA = item.getNumA();</span><br><span class="line">  <span class="keyword">int</span> numB = item.getNumB();</span><br><span class="line">    System.out.println(numA + numB);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wushutong.github.io/wushutong/blog/2020/12/26/lambda/" data-id="ckj5gw1pj0009d0tfaj3padas" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Jsoup java解析html xml 等" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/12/26/Jsoup%20java%E8%A7%A3%E6%9E%90html%20xml%20%E7%AD%89/" class="article-date">
+  <time class="dt-published" datetime="2020-12-26T08:53:03.590Z" itemprop="datePublished">2020-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Jsoup"><a href="#Jsoup" class="headerlink" title="Jsoup"></a>Jsoup</h1><p><strong>jsoup是一款Java的HTML解析器，主要用来对HTML解析。</strong></p>
+<p><strong>可以解析一系列标签结构的文件</strong>（xml，html，xhtml等等）</p>
+<h4 id="一-、依赖"><a href="#一-、依赖" class="headerlink" title="一 、依赖"></a>一 、依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jsoup<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsoup<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.11.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="二、获取Document-对象"><a href="#二、获取Document-对象" class="headerlink" title="二、获取Document 对象"></a>二、获取Document 对象</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 通过http https链接</span></span><br><span class="line">Connection connect = Jsoup.connect(<span class="string">&quot;http://www.baidu.com/&quot;</span>);</span><br><span class="line">Document document = connect.get();</span><br><span class="line"></span><br><span class="line"><span class="comment">// org.jsoup.Connection 对象可以设置一些请求头之类的信息来模拟浏览器的行为</span></span><br><span class="line">connect.data(<span class="string">&quot;query&quot;</span>, <span class="string">&quot;Java&quot;</span>)			<span class="comment">// 数据</span></span><br><span class="line">    .userAgent(<span class="string">&quot;Mozilla&quot;</span>)				<span class="comment">//</span></span><br><span class="line">    .cookie(<span class="string">&quot;auth&quot;</span>, <span class="string">&quot;token&quot;</span>)			<span class="comment">// cookie</span></span><br><span class="line">    .timeout(<span class="number">3000</span>)						<span class="comment">//超时时间</span></span><br><span class="line">    .cookies(Map&lt;String,String&gt;)		<span class="comment">// cookies</span></span><br><span class="line">    .header(<span class="string">&quot;请求头&quot;</span>,<span class="string">&quot;&quot;</span>)				  <span class="comment">// 请求头</span></span><br><span class="line">    .headers(Map&lt;String,String&gt;);		<span class="comment">//</span></span><br><span class="line"></span><br><span class="line">Document document = connect.get();</span><br><span class="line">   .post();							<span class="comment">// 请求方法，get post</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 通过字符串的html文件</span></span><br><span class="line">Document sss = Jsoup.parse(<span class="string">&quot;sss&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 通过一部分html 字符串，比如一个标签，这样会把所有</span></span><br><span class="line">Document sss = Jsoup.parseBodyFragment(<span class="string">&quot;sss&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wushutong.github.io/wushutong/blog/2020/12/26/Jsoup%20java%E8%A7%A3%E6%9E%90html%20xml%20%E7%AD%89/" data-id="ckj5gw1pd0001d0tf5zf010rx" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-getter和setter的boolean" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/12/26/getter%E5%92%8Csetter%E7%9A%84boolean/" class="article-date">
+  <time class="dt-published" datetime="2020-12-26T08:53:03.573Z" itemprop="datePublished">2020-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="getter-和-setter-Boolean问题"><a href="#getter-和-setter-Boolean问题" class="headerlink" title="getter 和 setter Boolean问题"></a>getter 和 setter Boolean问题</h1><p>JavaBean规范：如果一个属性是boolean值，假设名为property，则其setter方法应该是setProperty，其getter方法应该为isProperty</p>
+<p>直接使用注解对<code>is</code>开头的boolean 类型时不能正确获取getter 和 setter 方法的，可以手动修改，或者修改变量名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ndp.fb.rdb.model;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> classGetterSetterTester&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> busy;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isComplete;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> Boolean verify;</span><br><span class="line">    <span class="keyword">private</span> Boolean isFinish;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> JSON.toJSONString(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">staticvoidmain</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        GetterSetterTester t = getterSetter();</span><br><span class="line">        testJson(t);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> GetterSetterTester <span class="title">getterSetter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        GetterSetterTester t = <span class="keyword">new</span> GetterSetterTester();</span><br><span class="line">        <span class="comment">//基本类型：无论带不带is，都是isXxx,setXxx。   sun的标准，需要特殊注意</span></span><br><span class="line">        t.isBusy();</span><br><span class="line">        t.setBusy(<span class="keyword">true</span>);</span><br><span class="line">        t.isComplete();</span><br><span class="line">        t.setComplete(<span class="keyword">true</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="comment">//包装类型:和其他类型一样，getXxx,setXxx;(其他类型的isXxx也是 getIsXxx,setIsXxx,不算特例).</span></span><br><span class="line">        t.getVerify();</span><br><span class="line">        t.setVerify(<span class="keyword">true</span>);</span><br><span class="line">        t.getIsFinish();</span><br><span class="line">        t.setIsFinish(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    privatestaticvoidtestJson(GetterSetterTester t)&#123;</span><br><span class="line">        <span class="comment">//期望的json格式</span></span><br><span class="line">        String json = <span class="string">&quot;&#123;\&quot;busy\&quot;:true,\&quot;isComplete\&quot;:true,\&quot;isFinish\&quot;:true,\&quot;verify\&quot;:true&#125;&quot;</span>;</span><br><span class="line">        GetterSetterTester p = JSON.parseObject(json, GetterSetterTester.class);</span><br><span class="line">        System.out.println(p.isBusy());</span><br><span class="line">        System.out.println(p.isComplete());  <span class="comment">//false</span></span><br><span class="line">        System.out.println(p.getVerify());</span><br><span class="line">        System.out.println(p.getIsFinish());</span><br><span class="line">        <span class="comment">//实际的json格式，可成功反序列化成对象。</span></span><br><span class="line">        <span class="comment">//基本类型变量无论是否有is，json都没有is（与getter一致）。</span></span><br><span class="line">        System.out.println(t.toString());<span class="comment">//&#123;&quot;busy&quot;:true,&quot;complete&quot;:true,&quot;isFinish&quot;:true,&quot;verify&quot;:true&#125;</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment">//空对象时的json，基本类型默认是false，会输出；包装类型默认是null，不输出。</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> GetterSetterTester().toString());<span class="comment">//&#123;&quot;busy&quot;:false,&quot;complete&quot;:false&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo01.qianji.entity;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: wushutong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 2020/10/10 18:39</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BooleanTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> a;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isB;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Boolean c;</span><br><span class="line">    <span class="keyword">private</span> Boolean isD;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(<span class="keyword">boolean</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isB;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setB</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</span><br><span class="line">        isB = b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">getC</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setC</span><span class="params">(Boolean c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.c = c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">getD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setD</span><span class="params">(Boolean d)</span> </span>&#123;</span><br><span class="line">        isD = d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wushutong.github.io/wushutong/blog/2020/12/26/getter%E5%92%8Csetter%E7%9A%84boolean/" data-id="ckj5gw1ph0007d0tfc7or49fx" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-AtomicBoolean" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/12/26/AtomicBoolean/" class="article-date">
+  <time class="dt-published" datetime="2020-12-26T08:53:03.541Z" itemprop="datePublished">2020-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="AtomicBoolean"><a href="#AtomicBoolean" class="headerlink" title="AtomicBoolean"></a>AtomicBoolean</h1><p>AtomicBoolean 这个类，他是线程安全的，它的compareAndSet方法是利用CAS来实现线程安全的，</p>
+<p>它的两种用法：</p>
+<p>1.保证某段语句只执行一次。 执行结束后不修改回false</p>
+<p>首先我们要知道compareAndSet的作用，判断对象当时内部值是否为第一个参数，如果是则更新为第二个参数，且返回ture，否则返回false。那么默认初始化为false，则一个线程把他变为ture，compareAndSet返回ture，进入方法体执行逻辑，那么其他的任何线程进入该方法执行compareAndSet时第一个参数为false，而对象的内部值已经被修改为true，则永远过不了if。</p>
+<pre><code>//创建新对象，提供默认值false
+private static AtomicBoolean initialized = new AtomicBoolean(false);  
+
+public void init()
+&#123;   
+    //第一个参数与默认值一致，把值改为第二个参数，返回true  后面在执行则都是false。
+   if( initialized.compareAndSet(false, true) )
+   &#123;
+       // 这里放置初始化代码....
+   &#125;
+&#125;</code></pre>
+<p>​<br>2.保证该方法只有一个线程执行，类似于锁的操作 执行结束后修改回false</p>
+<p>方法只执行1次，那么方法执行结束的时候我把对象的值变成false，compareAndSet可以继续可以将对象则的值设置成true，返回true。</p>
+<pre><code>@Override    
+ public void run() &#123;     
+     if (exists.compareAndSet(false, true)) &#123;    
+
+         exists.set(false);      
+    &#125; else &#123;    
+         System.out.println(name + &quot; give up&quot;);    
+    &#125;    
+
+&#125;  </code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wushutong.github.io/wushutong/blog/2020/12/26/AtomicBoolean/" data-id="ckj5gw1p70000d0tf9qabfm1c" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2020/12/24/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
   <time class="dt-published" datetime="2020-12-24T02:08:41.480Z" itemprop="datePublished">2020-12-24</time>
@@ -279,29 +435,68 @@
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/blog/2020/12/26/AtomicBoolean/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/blog/2020/12/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
+</article>
 
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/12/12/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2020-12-12T10:50:24.780Z" itemprop="datePublished">2020-12-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2020/12/12/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wushutong.github.io/wushutong/blog/2020/12/12/hello-world/" data-id="ckj5gw1pi0008d0tf9dot3gwv" data-title="Hello World" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
   
 </article>
 
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         
